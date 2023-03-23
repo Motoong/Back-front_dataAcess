@@ -5,7 +5,7 @@ export default function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('http://220.81.197.118:8000/test/testdb/?format=json')
+    fetch('https://port-0-node-db-6g2llfkrcx3m.sel3.cloudtype.app/')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.log(error));
@@ -16,10 +16,10 @@ export default function App() {
       <Text style={styles.title}>Data from API:</Text>
       {data ? (
         <View>
-          <Text>{data[0]}</Text>
+          <Text>id : {data.id}</Text>
         </View>
       ) : (
-        <Text>Loading...</Text>
+        <Text>연결 실패</Text>
       )}
     </View>
   );
